@@ -15,6 +15,7 @@ use App\Gitara;
 Auth::routes();
 
 Route::get('/', 'indexController@index')->name('home');
+Route::get('/home', 'indexController@index');
 Route::get('/new', 'GitaraController@nowe')->name('new');
 Route::get('/old', 'GitaraController@stare')->name('stare');
 Route::get('/akord', 'GitaraController@akord')->name('akord');
