@@ -33,13 +33,15 @@
     </select>
 </div>
 
+
+
 <div class="form-group">
-    <label for="master">Naumiane:</label>
-    <select name="master" id="">
-        @foreach($masters as $master)
-            <option value="{{$master->id}}">{{$master->title}}</option>
-        @endforeach
-    </select>
+    <label for="link">Link</label>
+    <input type="text" name="link" value="-" style="width:350px">
+</div>
+
+<div class="form-group">
+    <input type="hidden" name="master" value="1">
 </div>
 
 

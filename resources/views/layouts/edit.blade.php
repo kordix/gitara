@@ -2,7 +2,12 @@
 
 @section('content')
 <div class="container">
+    @if($position->link != "-")
+    <a target="_blank" href="{{$position->link}}">{{$position->link}}</a>
+    @endif
 <div class="col-md-5">
+
+
 <form action="{{route('update', $position->id)}}" method="post">
 
     {{csrf_field()}}
@@ -26,6 +31,17 @@
     </select>
 </div>
 <div class="form-group">
+    <label for="link">Link</label>
+    <input type="text" name="link" value="{{$position->link}}" style="width:250px">
+</div>
+
+<div class="form-group">
+    <input type="hidden" name="master" value="1" >
+</div>
+
+
+
+<div class="form-group">
     <label for="age">Wiek</label>
     <select name="age" id="">
         @foreach($ages as $age)
@@ -33,15 +49,7 @@
         @endforeach
     </select>
 </div>
-<div class="form-group">
-    <label for="age">Naumiane:</label>
-    <select name="master" id="">
-        @foreach($masters as $master)
-            <option value="{{$master->id}}">{{$master->title}}</option>
-        @endforeach
-    </select>
 
-</div>
 <div class="form-group">
     <label for="age">Magiel</label>
     <select name="magiel">

@@ -152,7 +152,8 @@ class GitaraController extends Controller
             'magiel'=>request('magiel'),
             'kasa'=>request('kasa'),
             'source_id'=>request('source'),
-            'kolekcja_id'=>request('collection')
+            'kolekcja_id'=>request('collection'),
+            'link'=>request('link')
         ]);
         session()->flash('message', 'Dodano utwór');
         return redirect()->back();
@@ -213,7 +214,8 @@ class GitaraController extends Controller
                 'magiel'=>request('magiel'),
                 'kasa'=>request('kasa'),
                 'source_id'=>request('source'),
-                'kolekcja_id'=>request('collection')
+                'kolekcja_id'=>request('collection'),
+                'link'=>request('link')
         ]);
         session()->flash('message', 'zapisano zmiany');
         return back();

@@ -14,7 +14,7 @@ class Altergitaralink extends Migration
     public function up()
     {
         Schema::table('gitaras', function (Blueprint $table) {
-            $table->integer('link')->default('');
+            $table->string('link')->default('-');
         });
     }
 
