@@ -2,10 +2,11 @@
 
 @section('content')
 <div class="container">
+    <div class="col-md-5">
+
     @if($position->link != "-")
-    <a target="_blank" href="{{$position->link}}">{{$position->link}}</a>
+    <b>Link:</b> <a target="_blank" href="{{$position->link}}">{{$position->link}}</a>
     @endif
-<div class="col-md-5">
 
 
 <form action="{{route('update', $position->id)}}" method="post">
@@ -14,12 +15,13 @@
     {{method_field('PATCH')}}
 
 <div class="form-group">
-    <label for="title">Tytuł utworu (id={{$position->id}})</label>
+    <label for="title"><b>Tytuł utworu</b> (id={{$position->id}})</label>
     <input type="text" value="{{$position->title}}" class="form-control" name="title" autocomplete="off">
 </div>
 <div class="form-group">
-    <label for="description" requested>Opis</label>
-    <textarea type="text" class="form-control" name="description" style="height:200px">{{$position->description}}</textarea>
+    <label for="description" requested>Opis </label><a href="#" onclick="toggleopis()" style="text-decoration:none"><span> toggle</span></a>
+    <textarea id="opisedit" type="text" class="form-control" name="description" style="height:200px;display:none">{{$position->description}}</textarea>
+        <p id="opis"> {!!$position->description !!}</p>
 </div>
 <div class="form-group">
     <label for="category">Kategoria</label>
@@ -102,4 +104,42 @@
 </div>
 
 </div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+    function toggleopis(){
+        var opis = document.getElementById('opis');
+        var opisedit = document.getElementById('opisedit');
+
+        if (opisedit.style.display == 'none'){
+            opis.style.display='none';
+            opisedit.style.display='block';
+        }else{
+            opis.style.display='block';
+            opisedit.style.display='none';
+        }
+    }
+
+    </script>
+
+
+@endsection
+
+@section('style')
+<style>
+label{
+    font-weight:bold;
+}
+
+#opis{
+    padding:5px;
+    background:white;
+    border:2px  solid;
+    border-color:#999999;
+    border-radius:3px;
+}
+
+
+</style>
 @endsection
